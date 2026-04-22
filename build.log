@@ -26,52 +26,5 @@ Next.js version : 16.2.3
   ⨯ turbopackServerFastRefresh
 
   Creating an optimized production build ...
-✓ Compiled successfully in 11.7s
+✓ Compiled successfully in 11.5s
   Running TypeScript ...
-  Finished TypeScript in 7.8s ...
-  Collecting page data using 7 workers ...
-*** Fatal uncaught kj::Exception: workerd/util/sqlite.c++:842: failed: SENTRY_DO SQLite failed; NOSENTRY database is locked: SQLITE_BUSY (extended: SQLITE_BUSY_RECOVERY)
-stack: 101cd1c0b 100e01a6f 100e3e9bb 100e0b387 100e0adbf 100dd622f 100e3968b 100e3c1bf 100db3d57 1037438eb 103743c13 10374248b 10374224b 100da08db 1881890df
-MiniflareCoreError [ERR_RUNTIME_FAILURE]: The Workers runtime failed to start. There is likely additional logging output above.
-    at async l (.next/server/chunks/_06jv.8d._.js:141:150751)
-    at async o (.next/server/chunks/_06jv.8d._.js:141:150530)
-    at async (.next/server/chunks/_06jv.8d._.js:242:62413) {
-  code: 'ERR_RUNTIME_FAILURE',
-  cause: undefined
-}
-MiniflareCoreError [ERR_RUNTIME_FAILURE]: The Workers runtime failed to start. There is likely additional logging output above.
-    at async l (.next/server/chunks/_06jv.8d._.js:141:150751)
-    at async o (.next/server/chunks/_06jv.8d._.js:141:150530)
-    at async (.next/server/chunks/_06jv.8d._.js:242:62413) {
-  code: 'ERR_RUNTIME_FAILURE',
-  cause: undefined
-}
-
-> Build error occurred
-Error: Failed to collect page data for /api/[...slug]
-    at ignore-listed frames {
-  type: 'Error'
-}
- ELIFECYCLE  Command failed with exit code 1.
-node:internal/errors:983
-  const err = new Error(message);
-              ^
-
-Error: Command failed: pnpm build
-    at genericNodeError (node:internal/errors:983:15)
-    at wrappedFn (node:internal/errors:537:14)
-    at checkExecSyncError (node:child_process:916:11)
-    at Object.execSync (node:child_process:988:15)
-    at buildNextjsApp (file:///Users/melchanatan/Documents/WebDevelopment/drived-web/node_modules/.pnpm/@opennextjs+aws@3.10.2_next@16.2.3_@babel+core@7.29.0_@playwright+test@1.58.2_react-dom_06166889cb2864561b8047da9d803328/node_modules/@opennextjs/aws/dist/build/buildNextApp.js:15:8)
-    at build (file:///Users/melchanatan/Documents/WebDevelopment/drived-web/node_modules/.pnpm/@opennextjs+cloudflare@1.19.3_next@16.2.3_@babel+core@7.29.0_@playwright+test@1.58.2_re_89ea2b5247722658f68782d9d9abd747/node_modules/@opennextjs/cloudflare/dist/cli/build/build.js:50:9)
-    at async buildCommand (file:///Users/melchanatan/Documents/WebDevelopment/drived-web/node_modules/.pnpm/@opennextjs+cloudflare@1.19.3_next@16.2.3_@babel+core@7.29.0_@playwright+test@1.58.2_re_89ea2b5247722658f68782d9d9abd747/node_modules/@opennextjs/cloudflare/dist/cli/commands/build.js:40:5) {
-  status: 1,
-  signal: null,
-  output: [ null, null, null ],
-  pid: 58376,
-  stdout: null,
-  stderr: null
-}
-
-Node.js v22.22.0
- ELIFECYCLE  Command failed with exit code 1.
