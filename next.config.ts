@@ -11,14 +11,27 @@ const nextConfig = {
   },
   // Packages with Cloudflare Workers (workerd) specific code
   // Read more: https://opennext.js.org/cloudflare/howtos/workerd
-  serverExternalPackages: ['drizzle-kit', 'drizzle-orm', '@payloadcms/db-d1-sqlite', 'jose', 'pg-cloudflare', 'sharp'],
+  serverExternalPackages: ['drizzle-kit', 'drizzle-orm', '@payloadcms/db-d1-sqlite',  'jose', 'pg-cloudflare', 'sharp'],
 
   // Your Next.js config here
+  experimental: {
+    cpus: 1,
+    turbo: {
+      resolveAlias: {
+        '@next/env': './src/shims/next-env.js',
+      },
+    },
+  },
   webpack: (webpackConfig: any) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
       '.js': ['.ts', '.tsx', '.js', '.jsx'],
       '.mjs': ['.mts', '.mjs'],
+    }
+
+    webpackConfig.resolve.alias = {
+      ...webpackConfig.resolve.alias,
+      '@next/env': './src/shims/next-env.js',
     }
 
     return webpackConfig
