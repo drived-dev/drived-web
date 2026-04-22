@@ -1,0 +1,37 @@
+# *
+User-agent: *
+Disallow: /admin/*
+Disallow: /search
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+
+# GPTBot
+User-agent: GPTBot
+Disallow: /
+
+# Google-Extended
+User-agent: Google-Extended
+Disallow: /
+
+# Bytespider
+User-agent: Bytespider
+Disallow: /
+
+# CCBot
+User-agent: CCBot
+Disallow: /
+
+# Host
+Host: http://localhost:3000
+
+# Sitemaps
+Sitemap: http://localhost:3000/sitemap.xml
+Sitemap: http://localhost:3000/pages-sitemap.xml
+Sitemap: http://localhost:3000/posts-sitemap.xml
+Sitemap: http://localhost:3000/works-sitemap.xml
