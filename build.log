@@ -20,27 +20,23 @@ Next.js version : 16.2.3
 > drived-web@1.0.0 build /Users/melchanatan/Documents/WebDevelopment/drived-web
 > cross-env NODE_OPTIONS="--no-deprecation --max-old-space-size=8000" next build
 
-⚠ Invalid next.config.ts options detected: 
-⚠     Unrecognized key(s) in object: 'turbo' at "experimental"
-⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
 ▲ Next.js 16.2.3 (Turbopack)
 - Environments: .env
 - Experiments (use with caution):
   · cpus: 1
-  ? turbo (invalid experimental key)
   ⨯ turbopackServerFastRefresh
 
   Creating an optimized production build ...
-✓ Compiled successfully in 12.6s
+✓ Compiled successfully in 13.8s
   Running TypeScript ...
-  Finished TypeScript in 6.8s ...
+  Finished TypeScript in 7.3s ...
   Collecting page data using 1 worker ...
 {"level":"warn","msg":"Image resizing is enabled for one or more collections, but sharp not installed. Please install 'sharp' and pass into the config."}
   Generating static pages using 1 worker (0/15) ...
   Generating static pages using 1 worker (3/15) 
   Generating static pages using 1 worker (7/15) 
   Generating static pages using 1 worker (11/15) 
-✓ Generating static pages using 1 worker (15/15) in 598ms
+✓ Generating static pages using 1 worker (15/15) in 740ms
   Finalizing page optimization ...
 
 Route (app)                   Revalidate  Expire
@@ -79,7 +75,7 @@ Bundling middleware function...
 Bundling static assets...
 Bundling cache assets...
 Building server function: default...
-Applying code patches: 11.013s
+Applying code patches: 11.692s
 # copyPackageTemplateFiles
 [35m⚙️ Bundling the OpenNext server...
 [0m
@@ -88,6 +84,22 @@ Applying code patches: 11.013s
     .open-next/server-functions/default/.next/server/chunks/ssr/_0xa_z..._.js:1:88736:
       1 │ ...se"number":case"boolean":case"null":return String(C);case"object...
         ╵                                 ~~~~~~
+
+  The expression "typeof x" actually evaluates to "object" in JavaScript, not "null". You need to use "x === null" to test for null.
+
+▲ [WARNING] The "typeof" operator will never evaluate to "null" [impossible-typeof]
+
+    .open-next/server-functions/default/.next/server/chunks/_0cqy6xo._.js:177:92975:
+      177 │ ...e"number":case"boolean":case"null":return String(k);case"objec...
+          ╵                                ~~~~~~
+
+  The expression "typeof x" actually evaluates to "object" in JavaScript, not "null". You need to use "x === null" to test for null.
+
+▲ [WARNING] The "typeof" operator will never evaluate to "null" [impossible-typeof]
+
+    .open-next/server-functions/default/.next/server/chunks/_0vg6av8._.js:171:92975:
+      171 │ ...e"number":case"boolean":case"null":return String(k);case"objec...
+          ╵                                ~~~~~~
 
   The expression "typeof x" actually evaluates to "object" in JavaScript, not "null". You need to use "x === null" to test for null.
 
@@ -111,22 +123,6 @@ Applying code patches: 11.013s
 
     .open-next/server-functions/default/.next/server/chunks/ssr/_0sdymp4._.js:174:93643:
       174 │ ...e"number":case"boolean":case"null":return String(C);case"objec...
-          ╵                                ~~~~~~
-
-  The expression "typeof x" actually evaluates to "object" in JavaScript, not "null". You need to use "x === null" to test for null.
-
-▲ [WARNING] The "typeof" operator will never evaluate to "null" [impossible-typeof]
-
-    .open-next/server-functions/default/.next/server/chunks/_0vg6av8._.js:171:92975:
-      171 │ ...e"number":case"boolean":case"null":return String(k);case"objec...
-          ╵                                ~~~~~~
-
-  The expression "typeof x" actually evaluates to "object" in JavaScript, not "null". You need to use "x === null" to test for null.
-
-▲ [WARNING] The "typeof" operator will never evaluate to "null" [impossible-typeof]
-
-    .open-next/server-functions/default/.next/server/chunks/_0cqy6xo._.js:177:92975:
-      177 │ ...e"number":case"boolean":case"null":return String(k);case"objec...
           ╵                                ~~~~~~
 
   The expression "typeof x" actually evaluates to "object" in JavaScript, not "null". You need to use "x === null" to test for null.
@@ -158,20 +154,20 @@ Tag cache does not need populating
 🌀 Found 1 new or modified static asset to upload. Proceeding with upload...
 + /BUILD_ID
 Uploaded 1 of 1 asset
-✨ Success! Uploaded 1 file (101 already uploaded) (1.81 sec)
+✨ Success! Uploaded 1 file (101 already uploaded) (1.09 sec)
 
-Total Upload: 37777.93 KiB / gzip: 8220.09 KiB
-Worker Startup Time: 35 ms
+Total Upload: 37777.28 KiB / gzip: 8219.84 KiB
+Worker Startup Time: 32 ms
 Your Worker has access to the following bindings:
 Binding                            Resource         
 env.D1 (drived-web-db)             D1 Database      
 env.R2 (drived-web-media)          R2 Bucket        
 env.ASSETS                         Assets           
 
-Uploaded drived-web (33.92 sec)
-Deployed drived-web triggers (6.40 sec)
+Uploaded drived-web (26.21 sec)
+Deployed drived-web triggers (2.54 sec)
   https://drived-web.chanatan.workers.dev
-Current Version ID: 153be9af-5d09-4d43-bfa7-13e7265da84b
+Current Version ID: b3c127d0-d516-489e-9473-e1e2a052152f
 [33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mUsing direct eval with a bundler is not recommended and may cause problems[0m [direct-eval]
 
     .open-next/server-functions/default/handler.mjs:456:71929:

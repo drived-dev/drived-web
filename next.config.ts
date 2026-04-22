@@ -16,22 +16,12 @@ const nextConfig = {
   // Your Next.js config here
   experimental: {
     cpus: 1,
-    turbo: {
-      resolveAlias: {
-        '@next/env': './src/shims/next-env.js',
-      },
-    },
   },
   webpack: (webpackConfig: any) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
       '.js': ['.ts', '.tsx', '.js', '.jsx'],
       '.mjs': ['.mts', '.mjs'],
-    }
-
-    webpackConfig.resolve.alias = {
-      ...webpackConfig.resolve.alias,
-      '@next/env': './src/shims/next-env.js',
     }
 
     return webpackConfig
