@@ -3,12 +3,8 @@ import { withPayload } from '@payloadcms/next/withPayload'
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true,
-    localPatterns: [
-      {
-        pathname: '/api/media/file/**',
-      },
-    ],
+    loader: 'custom',
+    loaderFile: './src/utilities/imageLoader.ts',
   },
   // Packages with Cloudflare Workers (workerd) specific code
   // Read more: https://opennext.js.org/cloudflare/howtos/workerd
