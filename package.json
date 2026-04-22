@@ -104,10 +104,7 @@
       "sharp",
       "esbuild",
       "unrs-resolver"
-    ],
-    "patchedDependencies": {
-      "@opennextjs/cloudflare": "patches/@opennextjs__cloudflare.patch"
-    }
+    ]
   },
   "cloudflare": {
     "bindings": {
