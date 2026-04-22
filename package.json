@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "postinstall": "node -e \"const fs=require('fs'),p='node_modules/@opennextjs/cloudflare/dist/cli/templates/shims/env.js';try{let c=fs.readFileSync(p,'utf8');if(!c.includes('export default'))fs.writeFileSync(p,c+'export default { loadEnvConfig };\\n');}catch(e){}\"",
     "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build",
     "deploy": "pnpm run deploy:database && pnpm run deploy:app",
     "deploy:app": "opennextjs-cloudflare build --env=$CLOUDFLARE_ENV && opennextjs-cloudflare deploy --env=$CLOUDFLARE_ENV",
