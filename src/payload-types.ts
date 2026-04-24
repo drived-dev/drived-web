@@ -799,7 +799,22 @@ export interface Form {
  * via the `definition` "FeaturedWorksBlock".
  */
 export interface FeaturedWorksBlock {
-  title?: string | null;
+  title?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  variant?: ('grid' | 'carousel') | null;
   works: (number | Work)[];
   id?: string | null;
   blockName?: string | null;
@@ -1340,6 +1355,7 @@ export interface FormBlockSelect<T extends boolean = true> {
  */
 export interface FeaturedWorksBlockSelect<T extends boolean = true> {
   title?: T;
+  variant?: T;
   works?: T;
   id?: T;
   blockName?: T;

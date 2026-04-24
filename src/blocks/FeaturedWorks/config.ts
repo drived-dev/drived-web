@@ -1,4 +1,10 @@
 import type { Block } from 'payload'
+import {
+  FixedToolbarFeature,
+  HeadingFeature,
+  InlineToolbarFeature,
+  lexicalEditor,
+} from '@payloadcms/richtext-lexical'
 
 export const FeaturedWorks: Block = {
   slug: 'featured-works',
@@ -6,8 +12,28 @@ export const FeaturedWorks: Block = {
   fields: [
     {
       name: 'title',
-      type: 'text',
+      type: 'richText',
+      editor: lexicalEditor({
+        features: ({ rootFeatures }) => {
+          return [
+            ...rootFeatures,
+            HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+            FixedToolbarFeature(),
+            InlineToolbarFeature(),
+          ]
+        },
+      }),
       label: 'Title Section',
+    },
+    {
+      name: 'variant',
+      type: 'select',
+      defaultValue: 'grid',
+      options: [
+        { label: 'Grid', value: 'grid' },
+        { label: 'Carousel', value: 'carousel' },
+      ],
+      label: 'Variant',
     },
     {
       name: 'works',

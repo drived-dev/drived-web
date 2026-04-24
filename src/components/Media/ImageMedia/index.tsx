@@ -64,7 +64,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   let src: StaticImageData | string = srcFromProps || ''
 
   if (!src && resource && typeof resource === 'object') {
-    const { alt: altFromResource, height: fullHeight, url, width: fullWidth } = resource
+    const { alt: altFromResource, height: fullHeight, url, width: fullWidth, sizes: resourceSizes } = resource
 
     width = fullWidth!
     height = fullHeight!
@@ -72,7 +72,17 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
     const cacheTag = resource.updatedAt
 
-    src = getMediaUrl(url, cacheTag)
+    // Use requested size if available, otherwise fallback to original URL
+    const sizeURL = (sizeFromProps && resourceSizes?.[sizeFromProps as keyof typeof resourceSizes] as any)?.url
+    
+    src = getMediaUrl(sizeURL || url, cacheTag)
+    
+    // Update width/height if we found a specific size
+    if (sizeURL && sizeFromProps && resourceSizes?.[sizeFromProps as keyof typeof resourceSizes]) {
+      const selectedSize = resourceSizes[sizeFromProps as keyof typeof resourceSizes] as any
+      width = selectedSize.width || width
+      height = selectedSize.height || height
+    }
   }
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)
