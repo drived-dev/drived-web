@@ -12,6 +12,22 @@ const config = {
                 fontWeight: 'normal',
                 marginBottom: '0.25em',
               },
+              p: {
+                marginTop: '0.75em',
+                marginBottom: '0.75em',
+              },
+              'h2, h3, h4': {
+                marginTop: '1.5em',
+                marginBottom: '0.5em',
+              },
+              'ul, ol': {
+                marginTop: '0.75em',
+                marginBottom: '0.75em',
+              },
+              li: {
+                marginTop: '0.25em',
+                marginBottom: '0.25em',
+              },
             },
           ],
         },
