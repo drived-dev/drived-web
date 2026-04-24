@@ -26,16 +26,16 @@ export async function Footer() {
 
       <div className='md:col-span-3 col-span-4 md:col-start-7 col-start-4'>
         <p>CONTACT</p>
-        <a href={`tel:${phoneNumber.replace(/\s+/g, '')}`} className='font-mono block hover:opacity-60 transition-opacity'>
+        <a href={`tel:${phoneNumber.replace(/\s+/g, '')}`} className='p font-mono block hover:opacity-60 transition-opacity'>
           {phoneNumber}
         </a>
-        <a href={`mailto:${email}`} className='font-mono block hover:opacity-60 transition-opacity'>
+        <a href={`mailto:${email}`} className='p font-mono block hover:opacity-60 transition-opacity'>
           {email}
         </a>
       </div>
 
 
-      <div className='col-span-3 md:text-right md:col-start-11 col-start-8'>
+      <div className='hidden md:block md:col-span-3 md:text-right md:col-start-11 col-start-8'>
         <p>BKK TIME</p>
         <DigitalClock />
       </div>

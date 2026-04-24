@@ -18,13 +18,13 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, richText }) => {
 
   return (
     <div className="relative flex flex-col col-span-full">
-      <div className='size-10 mb-8 md:hidden '>
+      <div className='size-10 mb-6 md:mb-8 md:hidden '>
         <Logo />
       </div>
 
       {richText && (
         <RichText
-          className="items-start mx-0 md:max-w-[80%] mb-6"
+          className="items-start mx-0 md:max-w-[80%] md:mb-6"
           data={richText}
           enableGutter={false}
         />

@@ -45,7 +45,7 @@ export const SideNavClient: React.FC<{ data: SideNavType }> = ({ data }) => {
         tl.fromTo(
           spacerRef.current,
           {
-            height: '16rem',
+            height: '8rem',
           },
           {
             height: 0,
@@ -84,7 +84,7 @@ export const SideNavClient: React.FC<{ data: SideNavType }> = ({ data }) => {
   )
 
   return (
-    <nav ref={navRef} className={`sticky top-48 pt-16 flex flex-col gap-4 items-start`}>
+    <nav ref={navRef} className={`sticky top-48 pt-12 flex flex-col gap-4 items-start`}>
       <Link href="/" >
         <div ref={logoRef}>
           <Logo className="size-14" />
