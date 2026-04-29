@@ -7,6 +7,8 @@ import { draftMode } from 'next/headers'
 import React, { cache } from 'react'
 import RichText from '@/components/RichText'
 
+import { notFound } from 'next/navigation'
+
 import type { Work } from '@/payload-types'
 
 import { WorkHero } from '@/heros/WorkHero'
@@ -24,6 +26,11 @@ export async function generateStaticParams() {
     limit: 1000,
     overrideAccess: false,
     pagination: false,
+    where: {
+      hasCaseStudy: {
+        equals: true,
+      },
+    },
     select: {
       slug: true,
     },
@@ -50,7 +57,7 @@ export default async function Work({ params: paramsPromise }: Args) {
   const url = '/works/' + decodedSlug
   const work = await queryWorkBySlug({ slug: decodedSlug })
 
-  if (!work) return <PayloadRedirects url={url} />
+  if (!work || (!work.hasCaseStudy && !draft)) return notFound()
 
   return (
     <article className="py-8 md:py-16">

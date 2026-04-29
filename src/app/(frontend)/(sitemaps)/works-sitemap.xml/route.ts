@@ -26,6 +26,7 @@ const getWorksSitemap = unstable_cache(
       select: {
         slug: true,
         updatedAt: true,
+        hasCaseStudy: true,
       },
     })
 
@@ -33,7 +34,7 @@ const getWorksSitemap = unstable_cache(
 
     const sitemap = results.docs
       ? results.docs
-          .filter((work) => Boolean(work?.slug))
+          .filter((work) => Boolean(work?.slug) && work.hasCaseStudy !== false)
           .map((work) => ({
             loc: `${SITE_URL}/works/${work?.slug}`,
             lastmod: work.updatedAt || dateFallback,

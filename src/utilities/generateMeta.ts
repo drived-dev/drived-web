@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import type { Media, Page, Post, Config } from '../payload-types'
+import type { Media, Page, Post, Config, Work } from '../payload-types'
 
 import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
@@ -26,10 +26,12 @@ const collectionPrefixes: Record<string, string> = {
 }
 
 export const generateMeta = async (args: {
-  doc: Partial<Page> | Partial<Post> | null
+  doc: Partial<Page> | Partial<Post> | Partial<Work> | null
   collectionSlug?: string
 }): Promise<Metadata> => {
   const { doc, collectionSlug } = args
+
+  const isWorkWithoutCaseStudy = collectionSlug === 'works' && (doc as Partial<Work>)?.hasCaseStudy === false
 
   const ogImage = getImageURL(doc?.meta?.image)
 
@@ -57,5 +59,6 @@ export const generateMeta = async (args: {
     alternates: {
       canonical: path,
     },
+    ...(isWorkWithoutCaseStudy ? { robots: { index: false } } : {}),
   }
 }
