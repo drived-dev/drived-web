@@ -3,13 +3,7 @@ import React from 'react'
 import { WorkCard } from '@/components/WorkCard'
 import { cn } from '@/utilities/ui'
 import RichText from '@/components/RichText'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
+import { CarouselSection } from './CarouselSection'
 
 export const FeaturedWorksBlock: React.FC<
   FeaturedWorksBlockProps & {
@@ -21,23 +15,7 @@ export const FeaturedWorksBlock: React.FC<
       {title && <RichText className="mb-8" data={title} enableGutter={false} />}
 
       {variant === 'carousel' ? (
-        <Carousel
-          opts={{
-            align: 'start',
-            loop: true,
-          }}
-          className="w-full relative"
-        >
-          <CarouselContent>
-            {(works as Work[]).map((work, index) => (
-              <CarouselItem key={index} className="!pl-2 md:basis-[70%] lg:basis-1/2">
-                <WorkCard doc={work} isSquare={false} className="aspect-square sm:aspect-3/2 lg:aspect-5/4 object-cover h-full" />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="-left-4 lg:-left-12" />
-          <CarouselNext className="-right-4 lg:-right-12" />
-        </Carousel>
+        <CarouselSection works={works as Work[]} />
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
           {(works as Work[]).map((work, index) => {
