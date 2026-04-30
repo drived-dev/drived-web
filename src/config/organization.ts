@@ -23,6 +23,7 @@ export const organizationConfig = {
     linkedin: 'https://www.linkedin.com/company/drive-d-co/',
     instagram: 'https://www.instagram.com/drived.co',
     clutch: 'https://clutch.co/profile/drive-d',
+    crunchbase: 'https://www.crunchbase.com/organization/drive-d',
     // facebook: 'https://www.facebook.com/drived.co',
   },
   knowsAbout: [
