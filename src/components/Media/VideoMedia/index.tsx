@@ -7,11 +7,14 @@ import type { Props as MediaProps } from '../types'
 
 import { getMediaUrl } from '@/utilities/getMediaUrl'
 
-export const VideoMedia: React.FC<MediaProps> = (props) => {
-  const { fill, imgClassName, onClick, resource, videoClassName } = props
+import { LoadingSpinner } from '@/components/ui/loading-spinner'
+import { useState } from 'react'
 
+export const VideoMedia: React.FC<MediaProps> = (props) => {
+  const { className, fill, imgClassName, onClick, resource, videoClassName } = props
+
+  const [isLoading, setIsLoading] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
-  // const [showFallback] = useState<boolean>()
 
   useEffect(() => {
     const { current: video } = videoRef
@@ -27,25 +30,34 @@ export const VideoMedia: React.FC<MediaProps> = (props) => {
     const { filename, height, url, width } = resource
 
     return (
-      <video
-        autoPlay
-        className={cn(
-          fill && 'absolute inset-0 w-full h-full object-cover',
-          videoClassName,
-          imgClassName,
-          'pointer-events-none',
+      <div className={cn('relative w-full h-full', className, fill && 'absolute inset-0')}>
+        {isLoading && (
+          <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/10 backdrop-blur-sm">
+            <LoadingSpinner />
+          </div>
         )}
-        controls={false}
-        height={!fill ? height || undefined : undefined}
-        loop
-        muted
-        onClick={onClick}
-        playsInline
-        ref={videoRef}
-        width={!fill ? width || undefined : undefined}
-      >
-        <source src={getMediaUrl(url || `/media/${filename}`, resource.updatedAt)} />
-      </video>
+        <video
+          autoPlay
+          className={cn(
+            fill && 'absolute inset-0 w-full h-full object-cover',
+            videoClassName,
+            imgClassName,
+            'pointer-events-none transition-opacity duration-300',
+            isLoading ? 'opacity-0' : 'opacity-100',
+          )}
+          controls={false}
+          height={!fill ? height || undefined : undefined}
+          loop
+          muted
+          onClick={onClick}
+          onLoadedData={() => setIsLoading(false)}
+          playsInline
+          ref={videoRef}
+          width={!fill ? width || undefined : undefined}
+        >
+          <source src={getMediaUrl(url || `/media/${filename}`, resource.updatedAt)} />
+        </video>
+      </div>
     )
   }
 
