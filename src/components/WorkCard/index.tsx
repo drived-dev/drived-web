@@ -65,7 +65,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({ className, doc, isSquare }) 
       )}
 
       {/* Info Bar at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 bg-muted-foreground/70 backdrop-blur-sm p-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute bottom-0 left-0 right-0 bg-muted-foreground/70 backdrop-blur-sm p-2 text-sm opacity-100 ">
         <div className="grid grid-cols-3 gap-2 text-xs uppercase tracking-wider font-medium text-black/50 mb-1">
           <div>Project</div>
           <div className={cn('text-center')}>Client</div>
