@@ -2,6 +2,7 @@ import { getServerSideURL } from '@/utilities/getURL'
 
 export const organizationConfig = {
   name: 'Drive D',
+  alternateName: ['Drive D Studio', 'DriveD', 'Drive D co', 'ไดรฟ์ ดี'], // Add this line
   url: getServerSideURL(),
   description:
     'Drive D is a creative technology studio in Bangkok, Thailand, specializing in interactive campaigns, gamification, AI SEO, and digital experiences for Gen Z audiences.',
@@ -20,7 +21,9 @@ export const organizationConfig = {
   email: 'hello@drived.co',
   socials: {
     linkedin: 'https://www.linkedin.com/company/drive-d-co/',
-    // facebook: 'REPLACE_WITH_FACEBOOK_URL',
+    instagram: 'https://www.instagram.com/drived.co',
+    clutch: 'https://clutch.co/profile/drive-d',
+    // facebook: 'https://www.facebook.com/drived.co',
   },
   knowsAbout: [
     'Creative Technology',
