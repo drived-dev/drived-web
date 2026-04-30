@@ -51,7 +51,6 @@ import { useState } from 'react'
 export const ImageMedia: React.FC<MediaProps> = (props) => {
   const {
     alt: altFromProps,
-    className,
     fill,
     pictureClassName,
     imgClassName,
@@ -100,7 +99,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         .join(', ')
 
   return (
-    <picture className={cn('relative block', className, pictureClassName)}>
+    <picture className={cn(pictureClassName)}>
       <NextImage
         alt={alt || ''}
         className={cn(imgClassName)}
