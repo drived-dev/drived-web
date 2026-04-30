@@ -63,8 +63,6 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     onLoad: onLoadFromProps,
   } = props
 
-  const [isLoading, setIsLoading] = useState(true)
-
   let width: number | undefined
   let height: number | undefined
   let alt = altFromProps
@@ -103,20 +101,11 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
   return (
     <picture className={cn('relative block', className, pictureClassName)}>
-      {isLoading && (
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-background/10 backdrop-blur-sm">
-          <LoadingSpinner />
-        </div>
-      )}
       <NextImage
         alt={alt || ''}
-        className={cn(imgClassName, isLoading && 'opacity-0', 'transition-opacity duration-300')}
+        className={cn(imgClassName)}
         fill={fill}
         height={!fill ? height : undefined}
-        onLoad={() => {
-          setIsLoading(false)
-          if (onLoadFromProps) onLoadFromProps()
-        }}
         placeholder="blur"
         blurDataURL={placeholderBlur}
         priority={priority}
