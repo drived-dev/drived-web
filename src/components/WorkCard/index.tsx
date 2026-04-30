@@ -31,7 +31,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({ className, doc, isSquare }) 
           <Media
             resource={heroImageSquare}
             fill
-            imgClassName="object-cover transition-transform duration-500 group-hover:scale-105"
+            imgClassName="object-cover transition-transform duration-500 "
             htmlElement={null}
           />
         ) : (
@@ -40,7 +40,7 @@ export const WorkCard: React.FC<WorkCardProps> = ({ className, doc, isSquare }) 
             <Media
               resource={heroImageWide}
               fill
-              imgClassName={cn('object-cover transition-transform duration-500 group-hover:scale-105')}
+              imgClassName={cn('object-cover transition-transform duration-500 ')}
               htmlElement={null}
             />
           )
